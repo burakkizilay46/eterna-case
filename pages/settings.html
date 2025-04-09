@@ -1,0 +1,93 @@
+<!-- Settings Page -->
+<div class="container mx-auto px-4 py-6">
+    <!-- Header -->
+    <div class="mb-6">
+        <h1 class="text-2xl font-bold text-gray-800">Ayarlar</h1>
+        <p class="text-gray-600 mt-2">Hesap ve uygulama ayarlarınızı yönetin</p>
+    </div>
+
+    <!-- Settings Sections -->
+    <div class="space-y-6">
+        <!-- Profile Settings -->
+        <div class="bg-white p-4 rounded-lg shadow">
+            <h2 class="text-lg font-semibold text-gray-800 mb-4">Profil Ayarları</h2>
+            <div class="space-y-4">
+                <div class="flex items-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                        <span class="text-blue-600 text-xl font-semibold">AK</span>
+                    </div>
+                    <button class="ml-4 px-4 py-2 text-sm text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50">
+                        Fotoğraf Değiştir
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Ad Soyad</label>
+                        <input type="text" value="Ahmet Kaya" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">E-posta</label>
+                        <input type="email" value="ahmet@example.com" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Telefon</label>
+                        <input type="tel" value="+90 555 123 4567" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notification Settings -->
+        <div class="bg-white p-4 rounded-lg shadow">
+            <h2 class="text-lg font-semibold text-gray-800 mb-4">Bildirim Ayarları</h2>
+            <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="font-medium text-gray-800">Mesaj Bildirimleri</h3>
+                        <p class="text-sm text-gray-600">Yeni mesaj bildirimlerini al</p>
+                    </div>
+                    <button class="w-11 h-6 bg-blue-600 rounded-full relative">
+                        <span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></span>
+                    </button>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="font-medium text-gray-800">E-posta Bildirimleri</h3>
+                        <p class="text-sm text-gray-600">Önemli güncellemeler için e-posta al</p>
+                    </div>
+                    <button class="w-11 h-6 bg-gray-200 rounded-full relative">
+                        <span class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Privacy Settings -->
+        <div class="bg-white p-4 rounded-lg shadow">
+            <h2 class="text-lg font-semibold text-gray-800 mb-4">Gizlilik</h2>
+            <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="font-medium text-gray-800">Profil Görünürlüğü</h3>
+                        <p class="text-sm text-gray-600">Profilinizi kimler görebilir</p>
+                    </div>
+                    <select class="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option>Herkes</option>
+                        <option>Sadece Bağlantılar</option>
+                        <option>Gizli</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex justify-end space-x-3">
+            <button class="px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50">
+                İptal
+            </button>
+            <button class="px-4 py-2 text-sm text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+                Kaydet
+            </button>
+        </div>
+    </div>
+</div> 

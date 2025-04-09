@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eterna</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header Component -->
+    <app-header></app-header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="pb-20 px-3">
+      <!-- Content will be loaded here by router -->
+      <div class="flex items-center justify-center min-h-screen">
+        <div class="text-center">
+          <div
+            class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"
+          ></div>
+          <p class="mt-2 text-gray-600">Yükleniyor...</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Navbar Component -->
+    <div class="fixed bottom-0 left-0 right-0">
+      <app-navbar></app-navbar>
+    </div>
+    <!-- Scripts -->
+    <script type="module" src="components/header/header.js"></script>
+    <script type="module" src="components/navbar/navbar.js"></script>
+    <script type="module">
+      import router from "./js/router.js";
+
+      // Header search event
+      document.addEventListener("search", (e) => {
+        const searchTerm = e.detail;
+        console.log("Search term:", searchTerm);
+        router.navigate("/search");
+      });
+
+      // Navbar navigation event
+      document.addEventListener("navigate", (e) => {
+        const { path } = e.detail;
+        console.log("Navigating to:", path);
+        router.navigate(path);
+      });
+    </script>
+  </body>
+</html>

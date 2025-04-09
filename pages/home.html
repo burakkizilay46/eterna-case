@@ -1,0 +1,85 @@
+<!-- Home Page -->
+<div class="container mx-auto px-3 py-4">
+  <!-- Normal görünüm -->
+  <div id="default-view">
+    <div class="mb-4 flex justify-between items-center">
+      <div class="flex items-center space-x-4">
+        <p class="text-xl font-semibold">
+          <span class="text-[#0052F1]"># </span>
+          Senin İçin
+        </p>
+      </div>
+      <p class="text-xs font-normal text-[#3B3E45]">Tümünü Gör</p>
+    </div>
+    <div class="w-full">
+      <service-grid></service-grid>
+    </div>
+
+    <div class="mt-4 flex justify-between items-center">
+      <p class="text-xl font-semibold">
+        <span class="text-[#0052F1]"># </span>
+        Öne Çıkanlar
+      </p>
+      <switch-button></switch-button>
+    </div>
+
+    <div class="mt-6">
+      <highlight-list></highlight-list>
+    </div>
+  </div>
+
+  <!-- Arama sonuçları görünümü -->
+  <div id="search-view" class="hidden">
+    <div class="mb-4">
+      <p class="text-xl font-semibold">
+        <span class="text-[#0052F1]"># </span>
+        Arama Sonuçları
+      </p>
+    </div>
+    <search-results></search-results>
+  </div>
+</div>
+
+<script type="module" src="../components/service-grid/service-grid.js"></script>
+<script
+  type="module"
+  src="../components/switch-button/switch-button.js"
+></script>
+<script type="module" src="../components/highlight-list/highlight-list.js"></script>
+<script type="module" src="../components/search-results/search-results.js"></script>
+<script>
+  document.addEventListener("service-selected", (e) => {
+    const service = e.detail;
+    console.log("Selected service:", service);
+  });
+
+  document.addEventListener("switch-change", (e) => {
+    const { type } = e.detail;
+    console.log("Switch changed to:", type);
+    
+  });
+
+  document.addEventListener("highlight-selected", (e) => {
+    const highlight = e.detail;
+    console.log("Selected highlight:", highlight);
+  });
+
+  document.addEventListener("result-selected", (e) => {
+    const result = e.detail;
+    console.log("Selected search result:", result);
+  });
+
+  document.addEventListener("search", (e) => {
+    const { searchTerm } = e.detail;
+    const defaultView = document.getElementById("default-view");
+    const searchView = document.getElementById("search-view");
+
+    if (searchTerm) {
+      defaultView.classList.add("hidden");
+      searchView.classList.remove("hidden");
+    } else {
+      defaultView.classList.remove("hidden");
+      searchView.classList.add("hidden");
+    }
+  });
+</script>

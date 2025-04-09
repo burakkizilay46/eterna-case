@@ -1,0 +1,109 @@
+<!-- Item Detail Page -->
+<div class="container mx-auto px-3 py-4">
+  <div class="bg-white rounded-lg">
+    <!-- Header Section -->
+    <div class="flex items-center gap-4 p-4 border-b">
+      <button id="back-button" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <h1 id="item-title" class="text-2xl font-semibold text-gray-900"></h1>
+    </div>
+
+    <!-- Content Section -->
+    <div class="p-4">
+      <!-- Service Provider Info -->
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-16 h-16 rounded-full overflow-hidden">
+          <img id="item-image" src="" alt="" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <h2 id="item-provider" class="text-lg font-semibold text-gray-900"></h2>
+          <div class="flex items-center gap-2 mt-1">
+            <span class="text-sm text-gray-600">4.0</span>
+            <span class="text-yellow-400">★★★★☆</span>
+            <span class="text-sm text-blue-500">(200 değerlendirme)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Price Info -->
+      <div class="bg-blue-50 rounded-lg p-4 mb-6">
+        <p class="text-gray-700">
+          <span id="item-price" class="text-2xl font-bold text-blue-600"></span>
+          <span class="text-sm">'den başlayan fiyatlarla</span>
+        </p>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-6">
+        <h3 class="text-lg font-semibold mb-2">Hizmet Detayları</h3>
+        <p class="text-gray-600">
+          Bu hizmet sağlayıcı, alanında uzman ekibiyle profesyonel çözümler sunmaktadır. 
+          Deneyimli kadrosu ve müşteri memnuniyeti odaklı yaklaşımıyla kaliteli hizmet garantisi vermektedir.
+        </p>
+      </div>
+
+      <!-- Contact Button -->
+      <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+        İletişime Geç
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Get item ID from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const itemId = urlParams.get('id');
+
+  // Back button functionality
+  const backButton = document.getElementById('back-button');
+  backButton.addEventListener('click', () => {
+    window.history.back();
+  });
+
+  // Fetch and display item details
+  const items = [
+    {
+      id: 1,
+      title: "Tamirat Servisi",
+      price: "500",
+      image: "/assets/highlight.png",
+      provider: "Ahmet Usta"
+    },
+    {
+      id: 2,
+      title: "Temizlik Servisi",
+      price: "150",
+      image: "/assets/highlight.png",
+      provider: "Temiz Ev Ltd."
+    },
+    {
+      id: 3,
+      title: "Nakliyat Servisi",
+      price: "300",
+      image: "/assets/highlight.png",
+      provider: "Güvenli Taşıma"
+    },
+    {
+      id: 4,
+      title: "Boyacı Servisi",
+      price: "250",
+      image: "/assets/highlight.png",
+      provider: "Renk Ustası"
+    }
+  ];
+
+  const item = items.find(item => item.id === parseInt(itemId));
+  if (item) {
+    document.getElementById('item-title').textContent = item.title;
+    document.getElementById('item-image').src = item.image;
+    document.getElementById('item-image').alt = item.title;
+    document.getElementById('item-provider').textContent = item.provider;
+    document.getElementById('item-price').textContent = `₺${item.price}`;
+  }
+});
+</script> 
