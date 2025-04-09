@@ -70,10 +70,13 @@ class SearchResults extends HTMLElement {
             </div>
           </div>
         </div>
-        <div>...</div>
+        <div>
+          <img src="assets/icons/options.svg" alt="options" class="w-[14px] h-[14px]">
+        </div>
       </div>
       <div class="w-full flex justify-between items-center">
         <div class="w-[103px] h-[40px] border-[1px] border-[#1570EF] rounded-[8px] items-center bg-[#EFF8FF] flex justify-center items-center gap-1" >
+          <img src="assets/icons/send-message.svg" alt="send-message" class="w-[14px] h-[14px]">
           <p class="text-[12px] font-semibold text-[#1570EF] leading-[18px]">Mesaj At</p>
         </div>
         <p class="text-[12px] font-normal text-[#363A33]">

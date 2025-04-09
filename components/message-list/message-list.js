@@ -10,6 +10,7 @@ class MessageList extends HTMLElement {
         image: "assets/avatar.jpeg",
         isRead: true,
         date: "today",
+        messageType: "incoming",
       },
       {
         id: 2,
@@ -19,6 +20,7 @@ class MessageList extends HTMLElement {
         image: "assets/avatar.jpeg",
         isRead: false,
         date: "yesterday",
+        messageType: "incoming",
       },
       {
         id: 3,
@@ -28,6 +30,7 @@ class MessageList extends HTMLElement {
         image: "assets/avatar.jpeg",
         isRead: true,
         date: "yesterday",
+        messageType: "incoming",
       },
       {
         id: 4,
@@ -37,6 +40,7 @@ class MessageList extends HTMLElement {
         image: "assets/avatar.jpeg",
         isRead: true,
         date: "lastweek",
+        messageType: "incoming",
       },
       {
         id: 1,
@@ -46,6 +50,7 @@ class MessageList extends HTMLElement {
         image: "assets/avatar.jpeg",
         isRead: true,
         date: "today",
+        messageType: "outgoing",
       },
       {
         id: 2,
@@ -55,6 +60,7 @@ class MessageList extends HTMLElement {
         image: "assets/avatar.jpeg",
         isRead: false,
         date: "yesterday",
+        messageType: "outgoing",
       },
       {
         id: 3,
@@ -64,6 +70,7 @@ class MessageList extends HTMLElement {
         image: "assets/avatar.jpeg",
         isRead: true,
         date: "yesterday",
+        messageType: "outgoing",
       },
       {
         id: 4,
@@ -73,6 +80,7 @@ class MessageList extends HTMLElement {
         image: "assets/avatar.jpeg",
         isRead: true,
         date: "lastweek",
+        messageType: "outgoing",
       },
     ];
   }
@@ -107,19 +115,15 @@ class MessageList extends HTMLElement {
           <!-- Mesaj -->
 
           <div class="flex justify-between items-center w-full">
-          <p class="text-[#9095A0] text-[14px] font-semibold mt-1 flex items-center">
-            <svg class="w-4 h-4 text-[#9095A0] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v16l4-4h12V4H4zm8 6h.01M8 10h.01M16 10h.01"></path>
-            </svg>
+          <p class="${message.messageType === "outgoing" ? 'text-[#9095A0]' : 'text-[#575757]'} text-[14px] font-semibold mt-1 flex items-center gap-2">
+            ${message.messageType === "incoming" ? `<img src="assets/icons/incoming.svg" alt="incoming" class="w-[14px] h-[14px]">` : `<img src="assets/icons/sent.svg" alt="sent" class="w-[14px] h-[14px]">`}
             ${message.message}
           </p>  
           <!-- Okundu/Okunmadı İkonu -->
         ${
           message.isRead
             ? `
-          <svg class="w-4 h-4 text-[#0052F1] ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg>
+          <img src="assets/icons/readed.svg" alt="readed" class="w-[14px] h-[14px]">
         `
             : `
           <div class="w-2 h-2 rounded-full bg-[#0052F1] ml-2"></div>
