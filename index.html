@@ -12,7 +12,7 @@
     <app-header></app-header>
 
     <!-- Main Content -->
-    <main id="main-content" class="pb-20 px-3">
+    <main id="main-content" class="pb-20">
       <!-- Content will be loaded here by router -->
       <div class="flex items-center justify-center min-h-screen">
         <div class="text-center">
@@ -25,9 +25,10 @@
     </main>
 
     <!-- Navbar Component -->
-    <div class="fixed bottom-0 left-0 right-0">
+    <div class="relative bottom-0 left-0 right-0">
       <app-navbar></app-navbar>
     </div>
+
     <!-- Scripts -->
     <script type="module" src="components/header/header.js"></script>
     <script type="module" src="components/navbar/navbar.js"></script>
@@ -47,6 +48,24 @@
         console.log("Navigating to:", path);
         router.navigate(path);
       });
+
+      // Hide header and navbar for detail page
+      window.addEventListener("popstate", () => updateLayout());
+      document.addEventListener("navigate", () => updateLayout());
+
+      function updateLayout() {
+        const path = window.location.pathname;
+        const header = document.querySelector("app-header");
+        const navbar = document.querySelector("app-navbar");
+        
+        if (path.includes("item-detail")) {
+          header.style.display = "none";
+          navbar.style.display = "none";
+        } else {
+          header.style.display = "block";
+          navbar.style.display = "block";
+        }
+      }
     </script>
   </body>
 </html>
